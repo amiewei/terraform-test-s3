@@ -71,14 +71,14 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.s3_bucket.id
   key          = "index.html"
-  source       = "www/index.html"
+  source       = "${path.module}/www/index.html"
   content_type = "text/html"
 }
 
 resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.s3_bucket.id
   key          = "error.html"
-  source       = "www/error.html"
+  source       = "${path.module}/www/error.html"
   content_type = "text/html"
 }
 
